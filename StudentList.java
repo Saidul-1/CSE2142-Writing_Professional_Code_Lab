@@ -14,11 +14,8 @@ public class StudentList {
 	public static void writer(String newName){
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(Constants.FILE_NAME, true));
-			Date datetime = new Date();
-			String dateformat = Constants.DATE_FORMAT;
-			DateFormat dateFormat = new SimpleDateFormat(dateformat);
-			String formatdate = dateFormat.format(datetime);
-			writer.write(Constants.SEPARATOR + newName + "\nList last updated on " + formatdate);
+			DateFormat dateFormat = new SimpleDateFormat(Constants.DATE_FORMAT);
+			writer.write(Constants.SEPARATOR + newName + "\nList last updated on " + dateFormat.format(new Date()));
 			writer.close();
 		} catch (Exception e){}
 	}
@@ -39,23 +36,20 @@ public class StudentList {
 			System.out.println(Constants.LOADING);			
 			reader();
 			Random random = new Random();
-			int randomIndx = random.nextInt(names.length);
-			System.out.println(names[randomIndx]);
+			System.out.println(names[random.nextInt(names.length)]);
 			System.out.println(Constants.LOADED);			
 		}
 		else if(args[0].contains(Constants.ADD_NAME)){
-			System.out.println(Constants.LOADING);			
-			String newName = args[0].substring(1);
-			writer(newName);
+			System.out.println(Constants.LOADING);
+			writer(args[0].substring(1));
 			System.out.println(Constants.LOADED);	
 		}
 		else if(args[0].contains(Constants.QUERY)) {
 			System.out.println(Constants.LOADING);		
 			reader();	
 			boolean done = false;
-			String query = args[0].substring(1);
 			for(int index = 0; index<names.length && !done; index++) {
-				if(names[index].equals(query)) {
+				if(names[index].equals(args[0].substring(1))) {
 					System.out.println(Constants.FOUND);
 					done=true;
 				}

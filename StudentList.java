@@ -56,11 +56,14 @@ public class StudentList {
 			}
 			System.out.println(Constants.LOADED);			
 		}
-		else if(args[0].contains(Constants.COUNT)) {
+		else if(args[0].equals(Constants.COUNT)) {
 			System.out.println(Constants.LOADING);	
 			reader();
 			System.out.println(names.length + " word(s) found ");
 			System.out.println(Constants.LOADED);						
+		}
+		else{
+			System.out.println(Constants.INVALID_ARGUMENT);
 		}
 	}
 }

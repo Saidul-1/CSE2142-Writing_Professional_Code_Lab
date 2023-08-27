@@ -11,4 +11,5 @@ public class Constants{
 	public static String ADD_NAME = "+";
 	public static String QUERY = "?";
 	public static String COUNT = "c";
+	public static String INVALID_ARGUMENT = "Invalid Argument";
 }

@@ -3,8 +3,11 @@ import java.text.*;
 import java.util.*;
 public class StudentList {
 	public static void main(String[] args) {
+		if(args.length != 1){
+			System.out.println("Number of Argument should be 1");
+		}
 //		Check arguments
-		if(args[0].equals("a")) {
+		else if(args[0].equals("a")) {
 			System.out.println("Loading data ...");			
 			try {
 				BufferedReader s = new BufferedReader(new InputStreamReader(new FileInputStream("students.txt"))); 

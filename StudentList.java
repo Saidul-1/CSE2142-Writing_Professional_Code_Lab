@@ -59,21 +59,7 @@ public class StudentList {
 		else if(args[0].contains(Constants.COUNT)) {
 			System.out.println(Constants.LOADING);	
 			reader();
-			char characters[] = line.toCharArray();			
-			boolean in_word = false;
-			int count = 0;
-			for(char character : characters) {
-				if(character ==' ') {
-					if (!in_word) {
-						count++; 
-						in_word = true;	
-					}
-					else { 
-						in_word = false;
-					}			
-				}
-			}
-			System.out.println(count + " word(s) found ");
+			System.out.println(names.length + " word(s) found ");
 			System.out.println(Constants.LOADED);						
 		}
 	}

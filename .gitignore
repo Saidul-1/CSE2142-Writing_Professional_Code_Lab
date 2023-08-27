@@ -1,2 +1,3 @@
-runJava.sh
 StudentList.class
+Constants.class
+runJava.sh
